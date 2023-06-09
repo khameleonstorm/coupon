@@ -62,7 +62,7 @@ app.post('/generate-coupon', async (req, res) => {
 
     if (lastRequest.date >= twentyFourHoursAgo) {
       // IP address has been used within the last 24 hours
-      return res.status(400).json({ message: 'IP address limit exceeded' });
+      return res.status(400).json({ message: "Oops! Our daily discount coupon code has been fully redeemed for today. Don't worry, come back tomorrow for another chance to save big!"});
     }
   }
 
@@ -71,7 +71,7 @@ app.post('/generate-coupon', async (req, res) => {
 
   if (couponCount >= 20) {
     // Coupon limit reached
-    return res.status(400).json({ message: 'Coupon limit exceeded' });
+    return res.status(400).json({ message: 'Oops! No coupon available, try some other time' });
   }
 
   let couponCode = Math.floor(1000 + Math.random() * 9000).toString();
