@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const nodemailer = require('nodemailer');
+
+const cors = require('cors');
 require('dotenv').config();
 
 
@@ -18,7 +20,7 @@ app.use((req, res, next) => {
   next();
 });
 
-
+app.use(cors());
 app.use(express.json());
 
 
@@ -87,7 +89,7 @@ app.post('/generate-coupon', async (req, res) => {
   sendEmailToAdmin(couponCode);
 
   // Return the coupon code to the frontend
-  res.header("Access-Control-Allow-Origin", "*").send( newCoupon );
+  res.send( newCoupon );
 });
 
 
