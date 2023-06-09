@@ -87,7 +87,7 @@ app.post('/generate-coupon', async (req, res) => {
   sendEmailToAdmin(couponCode);
 
   // Return the coupon code to the frontend
-  res.send( newCoupon );
+  res.header("Access-Control-Allow-Origin", "*").send( newCoupon );
 });
 
 
