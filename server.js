@@ -108,7 +108,7 @@ function sendEmailToAdmin(couponCode) {
 
   const mailOptions = {
     from: 'test@spyderdev.com',
-    to: 'eyizulie@gmail.com',
+    to: 'beeyondteck@gmail.com',
     subject: 'New Coupon Generated',
     text: `Coupon code: ${couponCode}`,
   };
