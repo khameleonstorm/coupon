@@ -62,7 +62,7 @@ app.post('/generate-coupon', async (req, res) => {
 
     if (lastRequest.date >= twentyFourHoursAgo) {
       // IP address has been used within the last 24 hours
-      return res.status(400).json({ message: "Oops! Our daily discount coupon code has been fully redeemed for today. Don't worry, come back tomorrow for another chance to save big!"});
+      return res.status(400).json({ message: "Sorry, you've already used today's daily discount coupon code. Come back tomorrow for another chance to save. We want to make sure everyone has a fair shot at these amazing deals!"});
     }
   }
 
@@ -71,7 +71,7 @@ app.post('/generate-coupon', async (req, res) => {
 
   if (couponCount >= 20) {
     // Coupon limit reached
-    return res.status(400).json({ message: 'Oops! No coupon available, try some other time' });
+    return res.status(400).json({ message: "Oops! Our daily discount coupon code has been fully redeemed for today. Don't worry, come back tomorrow for another chance to save big!" });
   }
 
   let couponCode = Math.floor(1000 + Math.random() * 9000).toString();
@@ -108,7 +108,7 @@ function sendEmailToAdmin(couponCode) {
 
   const mailOptions = {
     from: 'test@spyderdev.com',
-    to: 'beeyondteck@gmail.com',
+    to: 'eyizulie@gmail.com',
     subject: 'New Coupon Generated',
     text: `Coupon code: ${couponCode}`,
   };
