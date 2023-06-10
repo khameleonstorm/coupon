@@ -100,8 +100,8 @@ function sendEmailToAdmin(couponCode) {
     port: 465,
     secure: true,
     auth: {
-      user: `${process.env.SMTP_USER}`,
-      pass: `${process.env.SMTP_PASSWORD}`
+      user: `test@spyderdev.com`,
+      pass: `#Terminator150`
     },
     tls: { rejectUnauthorized: false }, 
   });
