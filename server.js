@@ -94,7 +94,7 @@ app.post('/generate-coupon', async (req, res) => {
 
 
 // Utility function to send email to the admin
-function sendEmailToAdmin(couponCode) {
+async function sendEmailToAdmin(couponCode) {
   let transporter = nodemailer.createTransport({
     host: 'smtp.hostinger.com',
     port: 465,
@@ -113,11 +113,7 @@ function sendEmailToAdmin(couponCode) {
     text: `Coupon code: ${couponCode}`,
   };
 
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.error('Error sending email:', error);
-    } else {
-      console.log('Email sent:', info.response);
-    }
-  });
+  
+  let info = await transporter.sendMail(mailOptions)
+  console.log("Message sent: %s", info.messageId);
 }
