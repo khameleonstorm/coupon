@@ -100,8 +100,8 @@ async function sendEmailToAdmin(couponCode) {
     port: 465,
     secure: true,
     auth: {
-      user: `test@spyderdev.com`,
-      pass: `#Terminator150`
+      user: `${process.env.SMTP_USER}`,
+      pass: `${process.env.SMTP_PASSWORD}`
     },
     tls: { rejectUnauthorized: false }, 
   });
