@@ -108,7 +108,7 @@ async function sendEmailToAdmin(couponCode) {
 
   const mailOptions = {
     from: `${process.env.SMTP_USER}`,
-    to: `${process.env.SMTP_USER}`,
+    to: `eyizulie@gmail.com`,
     subject: 'New Coupon Generated',
     text: `Coupon code: ${couponCode}`,
   };
